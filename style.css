@@ -336,15 +336,21 @@ p {
 
     .top-content-wrapper { padding: 0; }
     
-    /* 1. (수정) 제목 영역을 인쇄 시 숨깁니다. */
+    /* 1. (수정) 제목 영역: '디자인 신입 지원 이력서' (최상단 중앙) */
     .intro-header {
-        display: none; 
+        /* display: none; <-- 삭제 */
+        text-align: center; /* 제목을 중앙 정렬합니다. */
+        margin-bottom: 15px; /* 제목과 프로필 사이 간격 */
+    }
+    .intro-title {
+        font-size: 1.5rem; /* 인쇄 시 제목 크기 */
+        /* text-align: left; <-- 삭제 */
     }
     
     /* 웹 전용 래퍼 해제 */
     .main-intro-box { display: block; }
 
-    /* 2. 프로필 영역 (이제 최상단) */
+    /* 2. 프로필 영역 (제목 다음) */
     .profile-area {
         display: flex; /* 가로 정렬 */
         flex-direction: row;
