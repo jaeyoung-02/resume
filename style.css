@@ -1,125 +1,266 @@
-/* 기본 스타일 초기화 및 설정 */
+/* 기본 스타일 */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     line-height: 1.6;
-    background-color: #f4f7f6; /* 부드러운 배경색 */
-    color: #333;
     margin: 0;
-    padding: 20px;
-}
-
-/* 전체 페이지를 감싸는 컨테이너 */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #ffffff; /* 흰색 배경 */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden; /* 모서리 둥글게 처리 */
-}
-
-/* 헤더 (이름, 직함) */
-header {
-    background-color: #007bff; /* 메인 테마 색상 (파란색) */
-    color: #ffffff;
-    padding: 40px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0 0 10px 0;
-    font-size: 2.5rem;
-}
-
-header .job-title {
-    font-size: 1.3rem;
-    font-weight: 300;
-    margin: 0;
-    opacity: 0.9;
-}
-
-/* 메인 콘텐츠 영역 (소개, 기술, 프로젝트 등) */
-main {
-    padding: 30px 40px;
-}
-
-section {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee; /* 섹션 구분선 */
-}
-
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #007bff; /* 헤더와 동일한 테마 색상 */
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-/* 기술 스택 리스트 */
-#skills ul {
-    list-style-type: none;
     padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* 폰트 관련 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    color: #333;
+}
+
+p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+
+/* 상단 섹션 배경 및 레이아웃 */
+.top-section {
+    background-color: #eaf1f8; /* 상단 배경색 */
+    padding: 60px 0;
+    position: relative;
+}
+
+.top-section::before { /* 왼쪽 녹색 그라데이션 */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(to bottom, #94b8b6, #eaf1f8); /* 연한 녹색 그라데이션 */
+    z-index: 0;
+}
+
+.top-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* 아이템 간 간격 */
+    align-items: flex-start; /* 프로필과 소개글 상단 정렬 */
+    gap: 40px; /* 프로필과 소개글 사이 간격 */
+    padding: 0 40px;
+    position: relative; /* Z-index 적용을 위해 */
+    z-index: 1;
 }
 
-#skills li {
-    background-color: #e9f5ff; /* 연한 파란색 배경 */
-    color: #0056b3; /* 진한 파란색 글씨 */
-    padding: 8px 15px;
-    border-radius: 20px; /* 둥근 모서리 (알약 모양) */
-    font-weight: 500;
+/* 프로필 영역 */
+.profile-area {
+    display: flex;
+    flex-direction: column; /* 이미지와 텍스트 세로 정렬 */
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0; /* 공간 축소 방지 */
+    min-width: 200px; /* 최소 너비 지정 */
 }
 
-/* 프로젝트 아이템 */
-.project-item {
+.profile-image-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff; /* 이미지 로딩 전 배경 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-.project-item h3 {
-    font-size: 1.2rem;
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율 유지하며 채우기 */
+}
+
+.profile-text .name-en {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
     margin-bottom: 5px;
 }
 
-/* 연락처 링크 및 버튼 */
-#contact a {
-    color: #007bff;
-    text-decoration: none;
+.profile-text .name-kr {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
 }
 
-#contact a:hover {
-    text-decoration: underline;
+/* 소개 영역 */
+.intro-area {
+    flex-grow: 1; /* 남은 공간 모두 차지 */
+    padding-top: 20px; /* 프로필 이미지와 높이 맞추기 */
 }
 
-#contact-btn {
-    background-color: #28a745; /* 초록색 버튼 */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+.intro-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-#contact-btn:hover {
-    background-color: #218838; /* 호버 시 더 진한 초록색 */
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 600px;
 }
 
-/* 푸터 (저작권) */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    color: #777;
-    font-size: 0.9rem;
-    border-top: 1px solid #eee;
+/* 메인 콘텐츠 영역 (하단) */
+.main-content-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2개의 컬럼 */
+    gap: 40px; /* 섹션 간 간격 */
+}
+
+.resume-grid section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.resume-grid section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaf1f8; /* 섹션 제목 밑줄 */
+}
+
+/* 기본 정보, 학력, 자격증, 수상 내역 아이템 스타일 */
+.info-item, .edu-item, .license-item, .award-item, .activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.info-item:last-child, .edu-item:last-child, .license-item:last-child, .award-item:last-child, .activity-item:last-child {
+    border-bottom: none;
+}
+
+.info-label, .edu-year, .license-name, .award-name, .activity-date, .activity-org {
+    font-weight: 500;
+    color: #555;
+    flex-shrink: 0; /* 텍스트 줄바꿈 방지 */
+}
+
+.info-value, .edu-desc, .license-grade, .award-grade, .activity-desc {
+    font-weight: 400;
+    color: #333;
+    text-align: right;
+    flex-grow: 1; /* 남은 공간 채우기 */
+    margin-left: 20px; /* 간격 확보 */
+}
+
+/* 대외활동 및 경력 섹션 */
+.activities-section {
+    grid-column: 1 / -1; /* 두 컬럼 모두 차지 */
+}
+
+.activity-item {
+    flex-wrap: wrap; /* 내용이 길어지면 줄바꿈 */
+    align-items: flex-start;
+}
+
+.activity-date {
+    width: 150px; /* 날짜 고정 너비 */
+    margin-right: 20px;
+}
+
+.activity-org {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 200px; /* 기관명 고정 너비 */
+}
+
+.activity-desc {
+    flex-grow: 1;
+    margin-left: auto; /* 오른쪽으로 밀기 */
+    text-align: left; /* 설명은 왼쪽 정렬 */
+}
+
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+    .top-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .top-section::before {
+        width: 100%;
+        height: 100px; /* 모바일에서는 높이 줄임 */
+    }
+
+    .resume-grid {
+        grid-template-columns: 1fr; /* 한 컬럼으로 변경 */
+        gap: 30px;
+    }
+
+    .activities-section {
+        grid-column: auto; /* 한 컬럼으로 */
+    }
+    
+    .activity-item {
+        flex-direction: column; /* 세로로 정렬 */
+        align-items: flex-start;
+    }
+
+    .activity-date, .activity-org, .activity-desc {
+        width: 100%; /* 너비 100% */
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .activity-org {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .top-section {
+        padding: 40px 0;
+    }
+
+    .top-content-wrapper, .main-content-wrapper {
+        padding: 0 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .intro-title {
+        font-size: 1.5rem;
+    }
+
+    .resume-grid section {
+        padding: 20px;
+    }
+
+    .resume-grid section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
 }
