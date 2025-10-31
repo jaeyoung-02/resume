@@ -264,3 +264,128 @@ p {
         margin-bottom: 15px;
     }
 }
+
+/* ... (기존 style.css 코드는 그대로 둡니다) ... */
+
+
+/* ⬇️ 여기서부터 추가 ⬇️ */
+
+/* 1. 인쇄 버튼과 제목을 나란히 놓기 위한 스타일 */
+.intro-header {
+    display: flex;
+    justify-content: space-between; /* 제목과 버튼을 양쪽 끝으로 */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* 2. 화면에 보이는 인쇄 버튼 스타일 */
+#print-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #007bff; /* 버튼 색상 (예: 파란색) */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#print-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* 3. --- 🖨️ 인쇄 전용 스타일 --- */
+/* (화면에는 영향 X, 인쇄할 때만 적용) */
+@media print {
+    
+    /* A4 페이지 크기 및 여백 설정 */
+    @page {
+        size: A4; /* 페이지 크기를 A4로 */
+        margin: 20mm; /* 상하좌우 2cm 여백 */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 10pt; /* 인쇄에 적합한 폰트 크기 */
+        background: #fff; /* 배경 무조건 흰색 */
+    }
+
+    /* 인쇄하지 않을 요소들 (버튼 등) 숨기기 */
+    .no-print, #print-btn {
+        display: none !important;
+    }
+
+    /* 모든 요소의 배경색, 그림자, 글자색 강제 초기화 (잉크 절약) */
+    * {
+        background: transparent !important;
+        color: #000 !important; /* 모든 글자 검은색 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* 상단 섹션 인쇄 스타일 */
+    .top-section {
+        padding: 0;
+        border-bottom: 2px solid #ccc; /* 상단/하단 구분선 */
+        margin-bottom: 20px;
+    }
+
+    .top-section::before {
+        display: none; /* 왼쪽 녹색 그라데이션 제거 */
+    }
+
+    .top-content-wrapper {
+        flex-direction: row;
+        padding: 0;
+        gap: 30px;
+    }
+
+    .profile-image-container {
+        width: 140px;
+        height: 140px;
+        border: 1px solid #ddd; /* 이미지 테두리 */
+    }
+    
+    .intro-area {
+        padding-top: 0;
+    }
+    
+    .intro-title {
+        margin-bottom: 10px;
+    }
+
+    /* 메인 그리드 및 섹션 인쇄 스타일 */
+    .main-content-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+
+    .resume-grid {
+        grid-template-columns: 1fr 1fr; /* 2단 그리드 유지 */
+        gap: 20mm 10mm; /* 세로 2cm, 가로 1cm 간격 */
+    }
+
+    .resume-grid section {
+        padding: 0;
+        border: none; /* 테두리 제거 */
+    }
+    
+    .resume-grid section h2 {
+        border-bottom: 2px solid #eee; /* 제목 밑줄 */
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+
+    /* 페이지가 이상하게 나뉘는 것을 방지 */
+    section, .top-content-wrapper {
+        page-break-inside: avoid; /* 섹션 중간에 잘리지 않도록 함 */
+    }
+    
+    h2, h3 {
+        page-break-after: avoid; /* 제목 바로 뒤에서 페이지가 나뉘지 않도록 함 */
+    }
+}
