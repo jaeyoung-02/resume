@@ -1,391 +1,131 @@
-/* 기본 스타일 */
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김민수 - 디자이너 신입 지원 이력서</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-/* 폰트 관련 */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 700;
-    color: #333;
-}
+    <div class="top-section">
+        <div class="top-content-wrapper">
 
-p {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 400;
-}
+            <div class="intro-header">
+                <h2 class="intro-title">디자인 신입 지원 이력서</h2>
+                <button id="print-btn" class="no-print">🖨️ 이 페이지 인쇄하기</button>
+            </div>
 
-/* 상단 섹션 배경 및 레이아웃 */
-.top-section {
-    background-color: #eaf1f8; /* 상단 배경색 */
-    padding: 60px 0;
-    position: relative;
-}
-
-.top-section::before { /* 왼쪽 녹색 그라데이션 */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 100%;
-    background: linear-gradient(to bottom, #94b8b6, #eaf1f8); /* 연한 녹색 그라데이션 */
-    z-index: 0;
-}
-
-.top-content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-start; /* 프로필과 소개글 상단 정렬 */
-    gap: 40px; /* 프로필과 소개글 사이 간격 */
-    padding: 0 40px;
-    position: relative; /* Z-index 적용을 위해 */
-    z-index: 1;
-}
-
-/* 프로필 영역 */
-.profile-area {
-    display: flex;
-    flex-direction: column; /* 이미지와 텍스트 세로 정렬 */
-    align-items: center;
-    text-align: center;
-    flex-shrink: 0; /* 공간 축소 방지 */
-    min-width: 200px; /* 최소 너비 지정 */
-}
-
-.profile-image-container {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #fff; /* 이미지 로딩 전 배경 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.profile-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 이미지 비율 유지하며 채우기 */
-}
-
-.profile-text .name-en {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-.profile-text .name-kr {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
-}
-
-/* 소개 영역 */
-.intro-area {
-    flex-grow: 1; /* 남은 공간 모두 차지 */
-    padding-top: 20px; /* 프로필 이미지와 높이 맞추기 */
-}
-
-.intro-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.intro-text {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #555;
-    max-width: 600px;
-}
-
-/* 메인 콘텐츠 영역 (하단) */
-.main-content-wrapper {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 40px;
-}
-
-.resume-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2개의 컬럼 */
-    gap: 40px; /* 섹션 간 간격 */
-}
-
-.resume-grid section {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.resume-grid section h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eaf1f8; /* 섹션 제목 밑줄 */
-}
-
-/* 기본 정보, 학력, 자격증, 수상 내역 아이템 스타일 */
-.info-item, .edu-item, .license-item, .award-item, .activity-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 0;
-    border-bottom: 1px dotted #eee;
-}
-
-.info-item:last-child, .edu-item:last-child, .license-item:last-child, .award-item:last-child, .activity-item:last-child {
-    border-bottom: none;
-}
-
-.info-label, .edu-year, .license-name, .award-name, .activity-date, .activity-org {
-    font-weight: 500;
-    color: #555;
-    flex-shrink: 0; /* 텍스트 줄바꿈 방지 */
-}
-
-.info-value, .edu-desc, .license-grade, .award-grade, .activity-desc {
-    font-weight: 400;
-    color: #333;
-    text-align: right;
-    flex-grow: 1; /* 남은 공간 채우기 */
-    margin-left: 20px; /* 간격 확보 */
-}
-
-/* 대외활동 및 경력 섹션 */
-.activities-section {
-    grid-column: 1 / -1; /* 두 컬럼 모두 차지 */
-}
-
-.activity-item {
-    flex-wrap: wrap; /* 내용이 길어지면 줄바꿈 */
-    align-items: flex-start;
-}
-
-.activity-date {
-    width: 150px; /* 날짜 고정 너비 */
-    margin-right: 20px;
-}
-
-.activity-org {
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: 200px; /* 기관명 고정 너비 */
-}
-
-.activity-desc {
-    flex-grow: 1;
-    margin-left: auto; /* 오른쪽으로 밀기 */
-    text-align: left; /* 설명은 왼쪽 정렬 */
-}
-
-
-/* 반응형 디자인 */
-@media (max-width: 992px) {
-    .top-content-wrapper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .top-section::before {
-        width: 100%;
-        height: 100px; /* 모바일에서는 높이 줄임 */
-    }
-
-    .resume-grid {
-        grid-template-columns: 1fr; /* 한 컬럼으로 변경 */
-        gap: 30px;
-    }
-
-    .activities-section {
-        grid-column: auto; /* 한 컬럼으로 */
-    }
+            <div class="main-intro-box">
+                <div class="profile-area">
+                    <div class="profile-image-container">
+                        <img src="profile.jpg" alt="프로필 이미지"> 
+                    </div>
+                    <div class="profile-text">
+                        <p class="name-en">Minsu Kim</p>
+                        <h1 class="name-kr">김민수</h1>
+                    </div>
+                </div>
     
-    .activity-item {
-        flex-direction: column; /* 세로로 정렬 */
-        align-items: flex-start;
-    }
+                <div class="intro-text-area">
+                    <p class="intro-text">
+                        안녕하세요. 디자이너 김민수입니다. 새로운 디자인으로 여러분과 함께하고 싶어 설렙니다. 함께 머리를 맞대고 아이디어를 나누며, 더욱 특별한 작품을 만들어가고 싶습니다. 편안하게 소통하며, 서로의 시너지를 발휘해 보세요. 멋진 디자인으로 함께 성장해 나가길 기대합니다.
+                    </p>
+                </div>
+            </div>
 
-    .activity-date, .activity-org, .activity-desc {
-        width: 100%; /* 너비 100% */
-        margin-left: 0;
-        text-align: left;
-    }
+        </div>
+    </div>
 
-    .activity-org {
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-}
+    <div class="main-content-wrapper">
+        <div class="resume-grid">
+            <section class="basic-info-section">
+                <h2>기본 사항</h2>
+                <div class="info-item">
+                    <span class="info-label">전화</span>
+                    <span class="info-value">+123-456-7890</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">메일</span>
+                    <span class="info-value">hello@reallygreatsite.com</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">주소</span>
+                    <span class="info-value">123 Anywhere St., Any City</span>
+                </div>
+            </section>
 
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
+            <section class="education-section">
+                <h2>학력 사항</h2>
+                <div class="edu-item">
+                    <span class="edu-year">2050.02</span>
+                    <span class="edu-desc">라라라 대학교 시각디자인과 졸업</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-year">2045.02</span>
+                    <span class="edu-desc">라라라 고등학교 졸업</span>
+                </div>
+            </section>
 
-    .top-section {
-        padding: 40px 0;
-    }
+            <section class="licenses-section">
+                <h2>자격증</h2>
+                <div class="license-item">
+                    <span class="license-name">그래픽 툴 활용 능력</span>
+                    <span class="license-grade">1급</span>
+                </div>
+                <div class="license-item">
+                    <span class="license-name">문서 작성 능력</span>
+                    <span class="license-grade">1급</span>
+                </div>
+                <div class="license-item">
+                    <span class="license-name">AI 툴 활용 능력</span>
+                    <span class="license-grade">1급</span>
+                </div>
+            </section>
 
-    .top-content-wrapper, .main-content-wrapper {
-        padding: 0 20px;
-    }
+            <section class="awards-section">
+                <h2>수상 내역</h2>
+                <div class="award-item">
+                    <span class="award-name">디자인 경진대회</span>
+                    <span class="award-grade">대상</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-name">대학생 디자인 공모전</span>
+                    <span class="award-grade">대상</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-name">브랜드 디자인 공모전</span>
+                    <span class="award-grade">금상</span>
+                </div>
+            </section>
 
-    header h1 {
-        font-size: 2rem;
-    }
+            <section class="activities-section full-width">
+                <h2>대외 활동 및 경력</h2>
+                <div class="activity-item">
+                    <span class="activity-date">2050.02 ~ 2050.08</span>
+                    <span class="activity-org">회사 디자인팀 인턴</span>
+                    <span class="activity-desc">라라라 컴퍼니 인턴</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">2050.02 ~ 2050.08</span>
+                    <span class="activity-org">라라라 대학교</span>
+                    <span class="activity-desc">디자인 연합 동아리 브랜딩 구축 프로젝트</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">2049.03 ~ 2049.06</span>
+                    <span class="activity-org">라라라 대학교</span>
+                    <span class="activity-desc">로고 및 기업 브랜딩 구축 프로젝트</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">2048.02 ~ 2048.08</span>
+                    <span class="activity-org">라라라 대학교</span>
+                    <span class="activity-desc">웹사이트 구축 프로젝트</span>
+                </div>
+            </section>
+        </div>
+    </div>
 
-    .intro-title {
-        font-size: 1.5rem;
-    }
-
-    .resume-grid section {
-        padding: 20px;
-    }
-
-    .resume-grid section h2 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-}
-
-/* ... (기존 style.css 코드는 그대로 둡니다) ... */
-
-
-/* ⬇️ 여기서부터 추가 ⬇️ */
-
-/* 1. 인쇄 버튼과 제목을 나란히 놓기 위한 스타일 */
-.intro-header {
-    display: flex;
-    justify-content: space-between; /* 제목과 버튼을 양쪽 끝으로 */
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-/* 2. 화면에 보이는 인쇄 버튼 스타일 */
-#print-btn {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #007bff; /* 버튼 색상 (예: 파란색) */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#print-btn:hover {
-    background-color: #0056b3;
-}
-
-
-/* 3. --- 🖨️ 인쇄 전용 스타일 --- */
-/* (화면에는 영향 X, 인쇄할 때만 적용) */
-@media print {
-    
-    /* A4 페이지 크기 및 여백 설정 */
-    @page {
-        size: A4; /* 페이지 크기를 A4로 */
-        margin: 20mm; /* 상하좌우 2cm 여백 */
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        font-size: 10pt; /* 인쇄에 적합한 폰트 크기 */
-        background: #fff; /* 배경 무조건 흰색 */
-    }
-
-    /* 인쇄하지 않을 요소들 (버튼 등) 숨기기 */
-    .no-print, #print-btn {
-        display: none !important;
-    }
-
-    /* 모든 요소의 배경색, 그림자, 글자색 강제 초기화 (잉크 절약) */
-    * {
-        background: transparent !important;
-        color: #000 !important; /* 모든 글자 검은색 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    
-    /* 상단 섹션 인쇄 스타일 */
-    .top-section {
-        padding: 0;
-        border-bottom: 2px solid #ccc; /* 상단/하단 구분선 */
-        margin-bottom: 20px;
-    }
-
-    .top-section::before {
-        display: none; /* 왼쪽 녹색 그라데이션 제거 */
-    }
-
-    .top-content-wrapper {
-        flex-direction: row;
-        padding: 0;
-        gap: 30px;
-    }
-
-    .profile-image-container {
-        width: 140px;
-        height: 140px;
-        border: 1px solid #ddd; /* 이미지 테두리 */
-    }
-    
-    .intro-area {
-        padding-top: 0;
-    }
-    
-    .intro-title {
-        margin-bottom: 10px;
-    }
-
-    /* 메인 그리드 및 섹션 인쇄 스타일 */
-    .main-content-wrapper {
-        margin: 0;
-        padding: 0;
-    }
-
-    .resume-grid {
-        grid-template-columns: 1fr 1fr; /* 2단 그리드 유지 */
-        gap: 20mm 10mm; /* 세로 2cm, 가로 1cm 간격 */
-    }
-
-    .resume-grid section {
-        padding: 0;
-        border: none; /* 테두리 제거 */
-    }
-    
-    .resume-grid section h2 {
-        border-bottom: 2px solid #eee; /* 제목 밑줄 */
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-    }
-
-    /* 페이지가 이상하게 나뉘는 것을 방지 */
-    section, .top-content-wrapper {
-        page-break-inside: avoid; /* 섹션 중간에 잘리지 않도록 함 */
-    }
-    
-    h2, h3 {
-        page-break-after: avoid; /* 제목 바로 뒤에서 페이지가 나뉘지 않도록 함 */
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
