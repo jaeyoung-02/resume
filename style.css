@@ -1,0 +1,125 @@
+/* 기본 스타일 초기화 및 설정 */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6; /* 부드러운 배경색 */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 전체 페이지를 감싸는 컨테이너 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff; /* 흰색 배경 */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* 모서리 둥글게 처리 */
+}
+
+/* 헤더 (이름, 직함) */
+header {
+    background-color: #007bff; /* 메인 테마 색상 (파란색) */
+    color: #ffffff;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+}
+
+header .job-title {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* 메인 콘텐츠 영역 (소개, 기술, 프로젝트 등) */
+main {
+    padding: 30px 40px;
+}
+
+section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee; /* 섹션 구분선 */
+}
+
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #007bff; /* 헤더와 동일한 테마 색상 */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* 기술 스택 리스트 */
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* 아이템 간 간격 */
+}
+
+#skills li {
+    background-color: #e9f5ff; /* 연한 파란색 배경 */
+    color: #0056b3; /* 진한 파란색 글씨 */
+    padding: 8px 15px;
+    border-radius: 20px; /* 둥근 모서리 (알약 모양) */
+    font-weight: 500;
+}
+
+/* 프로젝트 아이템 */
+.project-item {
+    margin-bottom: 20px;
+}
+
+.project-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* 연락처 링크 및 버튼 */
+#contact a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+#contact-btn {
+    background-color: #28a745; /* 초록색 버튼 */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#contact-btn:hover {
+    background-color: #218838; /* 호버 시 더 진한 초록색 */
+}
+
+/* 푸터 (저작권) */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #777;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+}
