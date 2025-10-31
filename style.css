@@ -178,10 +178,12 @@ p {
     margin-left: 20px;
 }
 
+/* ⬇️ 이 부분이 수정되었습니다 ⬇️ */
 /* 대외활동 및 경력 섹션 */
 .activities-section {
-    grid-column: 1 / -1;
+    /* grid-column: 1 / -1;  <-- 이 속성이 삭제되어 1칸만 차지하게 됩니다. */
 }
+/* ⬆️ 여기까지 수정 ⬆️ */
 
 .activity-item {
     flex-wrap: wrap;
@@ -225,9 +227,11 @@ p {
         gap: 30px;
     }
 
+    /* ⬇️ 이 부분이 수정되었습니다 ⬇️ */
     .activities-section {
-        grid-column: auto;
+        /* grid-column: auto; <-- 이 속성은 이미 위에서 삭제되었으므로 여기도 수정됩니다. */
     }
+    /* ⬆️ 여기까지 수정 ⬆️ */
     
     .activity-item {
         flex-direction: column;
